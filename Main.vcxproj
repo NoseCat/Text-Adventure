@@ -138,6 +138,7 @@
     <ClCompile Include="Reighn.cpp" />
     <ClCompile Include="text2_1.cpp" />
     <ClCompile Include="text2_2.cpp" />
+    <ClCompile Include="text2_3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="fight.h" />
