@@ -18,7 +18,6 @@ int main()
 	system("chcp 1251 > nul");
 	srand(time(0));
 
-	printprint("все было так просто...", 15);
 	//Reighn();
 	//tunnel_2();
 	//printstats(_player_);
