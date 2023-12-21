@@ -18,10 +18,11 @@ int main()
 	system("chcp 1251 > nul");
 	srand(time(0));
 
-	//Reighn();
-	//tunnel_2();
-	//printstats(_player_);
 	//NecroGame();
-	NameEnter();
 	//krestiki();
+	//Reighn();
+	//tunnel_2(); оттуда к зачарованию быстро
+	// 123 > 1 > 1 > 2 > 1 > 2 >  > 3 путь к бою 
+	//printstats(_player_);
+	NameEnter();
 }
