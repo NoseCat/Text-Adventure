@@ -77,14 +77,14 @@ void fight_ant_anthill()
 		int block = 0;
 		int vibor;
 		
-		printf("ваши действия:\n1)атаковать \n2)использовать \n3)пропустить ход \n4)защищаться\n5)сбежать");
+		printf("ваши действия:\n1)атаковать \n2)использовать \n3)пропустить ход \n4)защищаться\n5)сбежать\n");
 		do { scanf_s("%d", &vibor); } while (vibor < 1 or vibor>5);system("cls");
 		if (vibor == 1)
 		{
 			_player_.stamina -= _player_.strength;
 			if (_player_.stamina < 0)
 			{
-				printf("вам не хватает сил ударить");
+				printf("вам не хватает сил ударить\n");
 				_player_.stamina = 0;
 			}
 			else
@@ -102,7 +102,7 @@ void fight_ant_anthill()
 		{
 			printf("использовать:\n");
 			printf("1) ОГРОМНАЯ лупа\n");
-				printf("2) палка \n");
+			printf("2) палка \n");
 			int vibor2;
 			
 			do { scanf_s("%d", &vibor2); } while (vibor2 < 1 or vibor2>2);
@@ -200,6 +200,7 @@ void text_ant_anthill()
 		break;
 	case 2:
 		system("cls");
+		//допишите меня!!!!
 		//destroy_village();
 		break;
 	}
@@ -316,7 +317,7 @@ void text_find_village()
 	switch (choice_on_village)
 	{
 	case 1:
-
+		//допилите меня пожалуйста
 		break;
 	case 2:
 		printprint("\n\"видимо это была деревня хазбика \".\n к ВАМ подходит дед и спрашивает, не натыкались ли ВЫ на кого-нибудь \n", 15);
@@ -342,7 +343,7 @@ void text_find_village()
 		}
 
 	case 3:
-		printprint("и вместе с ним был хазбик. они подходят к ВАМ и говорят\n\"вы украли нашу реликвию и навредили ВЫСОКОчинному гражданину ВЕЛИКОЙ деревни \n мы вынуждены взять вас под стражу\"\n \n", 15);
+		printprint(" и вместе с ним был хазбик. они подходят к ВАМ и говорят\n\"вы украли нашу реликвию и навредили ВЫСОКОчинному гражданину ВЕЛИКОЙ деревни \n мы вынуждены взять вас под стражу\"\n \n", 15);
 		printprint("1) пойти в тюрму \n", 15);
 		printprint("2) сделать что-нибудь, чтобы оправдаться\n", 15);
 		switch (choice(2))
@@ -354,7 +355,7 @@ void text_find_village()
 			//text_jail();
 			break;
 		case 2:
-			printprint("ВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
 			mission = true;
 			text_ant_anthill();
 			break;

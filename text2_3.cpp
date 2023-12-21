@@ -62,7 +62,6 @@ void oddity_event_2_3();
 void final_fight_2_3();
 void ending_2_3(int story_code);
 
-
 void opening_of_the_circus_2_3_0()
 {
 	system("cls");
@@ -182,8 +181,7 @@ void beginning_of_the_circus_2_3_0()
 void meet_with_antrepreneur_2_3_0()
 {
 	printprint("Наконец Вы заходите в кабинет антрепренёра цирка. Убранство комнаты граничит между роскошью и сортировкой по фэншую –\n", 5);
-	printprint("часть комнаты завалена хламом. Однако владельца этой комнаты внутри не обнаруживается, и Вы остались на едине с собой.\n", 5);
-	system("pause");
+	printprint("часть комнаты завалена хламом. Однако владельца этой комнаты внутри не обнаруживается, и Вы остались на едине с собой.\n\n", 5);
 	for (int wait = 0, loot_table = 1, loot_bunch = 1; wait <= 3;)
 	{
 		printprint("1) Осмотреть рабочий стол.\n2) Осмотреть валяющиеся вещи.\n3) Подойти к стиральной доске.\n4) Ждать\n5) Выйти из кабинета.\n", 5);
@@ -258,8 +256,7 @@ void meet_with_antrepreneur_2_3_0()
 			// ожидание(+1 к wait)
 		case 4:
 			system("cls");
-			printprint("Вы бездельничаете некоторое время...\n", 15);
-			system("pause");
+			printprint("Вы бездельничаете некоторое время...\n\n", 15);
 			_player_.kind_evil += 1;
 			wait++;
 			break;
@@ -272,9 +269,8 @@ void meet_with_antrepreneur_2_3_0()
 				// +1 wait
 			case 0:
 				printprint("Теперь Вы бездельничаете снаружи...\n", 15);
-				printprint("Вы старались провести время с пользой:\nпинали земелю, думали о своём будущем величии и смотрели на потолок. Вы возвращаетесь в кабинет.\n", 15);
+				printprint("Вы старались провести время с пользой:\nпинали земелю, думали о своём будущем величии и смотрели на потолок. Вы возвращаетесь в кабинет.\n\n", 15);
 				wait++;
-				system("pause");
 				break;
 
 				// meet and +2 wait or +1 wait
@@ -283,24 +279,21 @@ void meet_with_antrepreneur_2_3_0()
 				switch (choice(2))
 				{
 				case 1:
+					system("cls");
 					if (_player_.charisma < 5)
 					{
 						printprint("Вы неловко мямлите. Парень спешит пройти мимо...\n", 15);
-						system("pause");
 						wait++;
 						break;
 					}
 					printprint("У вас получатся завести разговор с парнишкой. Он - костюмер цирковой турппы. (новый знакомый: костюмер)\n", 15);
 					circus_meetings.dresser = 1;
-					system("pause");
 					wait += 2;
 					break;
 				case 2:
 					printprint("Вы кивнули. Паренёк проходит мимо.\n", 15);
-					system("pause");
 					wait++;
 					break;
-
 				default:
 					printf("\nswitch error: meet_with_antrepreneur_2_3_0() case5 case1\n");
 					system("pause");
@@ -325,7 +318,6 @@ void meet_with_antrepreneur_2_3_0()
 				wait++;
 				system("pause");
 				break;
-
 
 				// антрепренёр у входа в кабинет.
 			case 3:
@@ -844,6 +836,7 @@ void event_progulka_2_3()
 				switch (choice(2))
 				{
 				case 1:
+					//Проверка на !
 					enchantment(_player_);
 					sharp_2_3 = 1;
 					system("cls");
