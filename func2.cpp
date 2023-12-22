@@ -2,8 +2,8 @@
 #include <Windows.h>
 #include "Opening.h" 
 
-bool WasCirc;
-bool WasAcademy;
+extern bool WasCirc;
+extern bool WasAcademy;
 
 //проверка выбора
 int choice(int amountOfChoices)
