@@ -525,7 +525,7 @@ void text_festival()
 		Player rat;
 		rat.max_health = 100;
 		rat.health = 100;
-		rat.defence = 10;
+		rat.defense = 10;
 		rat.strength = 30;
 		printprint("¬џ пришли к логову этого звер€ там была ќ√–ќћЌЌјя крыса\n", 15);
 		system("pause");
