@@ -7,7 +7,7 @@ void beginning_of_the_circus_2_3_0();
 void meet_with_antrepreneur_2_3_0();
 void dialog_with_antrepreneur();
 void circus_choice_2_3(int num);
-void event_progulka_2_3();
+int event_progulka_2_3();
 void defender_2_3_1();
 void clown_2_3_2();
 void Bonk_2_3_3();
