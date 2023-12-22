@@ -1,11 +1,13 @@
 #include <iostream>
 #include <Windows.h>
 #include "func2.h"
+#include "func3.h"
 #include "Opening.h"
 #include "Krestiki.h"
 #include "Reighn.h"
+#include "text2_2.h"
 extern Player _player_;
-
+extern bool WasAcademy;
 bool excalibur = false;
 bool info_exc = false;
 bool namefalse = false;
@@ -70,6 +72,7 @@ void gamescissors()
 	if(!destroy)
 		printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n", 15);
 	system("pause");
+	name.strength--;
 }
 void fight_ant_anthill()
 {
@@ -226,8 +229,14 @@ void text_ant_anthill()
 		break;
 	case 2:
 		system("cls");
-		//допишите меня!!!!
-		//destroy_village();
+		if(WasAcademy)
+			printprint("ВЫ убегаете настолько далеко, насколько это возможно\n в этот раз вам не везет и вы оказываетесь посреди абсолютного ничего\n никто не услышит твой ВЫСОКИЙ юмор \n\n", 15);
+		
+		else
+		{
+			printprint("ВЫ убегаете настолько далеко, насколько это возможно\n как только вы начали успокаиваться и понимать что проиходит, ВЫ давно выбежали из леса и попали на лекцию по некромантии \n\n", 15);
+			text2_2();
+		}
 		break;
 	}
 }
@@ -455,15 +464,26 @@ void text_festival()
 		printprint("он говорит ВАМ, что впервые в своей ДЛИННОЙ жизни слышит о такой игре, поэтому\n вы в КРАТЦЕ рассказываете правила и начинаете \n", 15);
 		system("pause");
 		if (krestiki() == 1) //?
+		{
 			printprint("\nкакой ВЫ молодец, выиграли гнома, который играл в первый раз. ВЫ ВЕЛИКИЙ человек! \n", 15);
+			name.strength += 1;
+		}
 		else {
 			printprint("\nВЫ решили поддаться гному, который видит эту игру впервые. ВЫ ВЕЛИКИЙ человек! \n", 15);
 			//evil -= 3;
+			name.strength += 3;
 			_player_.kind_evil += 3;
 		}
 		break;
 	}
-	if (king == true)
+	if (namefalse)
+	{
+		enchantment(_player_);
+		printf("\n");
+		printstat(_player_, strength);
+		printf("\n");
+	}
+	else if (king == true)
 		int reighnResuly = Reighn();
 	//-2: Вас сверг уставший от диктатуры народ -1: Казна опустела 1: Вы продержались 15 дней. 
 }
