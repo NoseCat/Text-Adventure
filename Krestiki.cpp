@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int mass[3][3] = {};
-int  won = 0;
+int mass[3][3];
+int  won;
 
 void hod_player()
 {
@@ -101,6 +101,8 @@ void hod_enemy()
 }
 int krestiki()
 {
+	mass[3][3] = {};
+	won = 0;
 	print_pole();
 	do
 	{

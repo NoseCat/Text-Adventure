@@ -11,6 +11,7 @@ bool info_exc = false;
 bool namefalse = false;
 bool mission = false;
 bool king = false;
+bool destroy = false;
 int choice_on_village = 0;
 //int intelect = 10;
 int socialreit = 0;
@@ -62,7 +63,8 @@ void gamescissors()
 			printf("ВЫ ставите бумагу - противник ножницы вы проиграли %i:0 \n", i); break;
 		}
 	}
-	printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n", 15);
+	if(!destroy)
+		printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n", 15);
 	system("pause");
 }
 void fight_ant_anthill()
@@ -317,8 +319,31 @@ void text_find_village()
 	switch (choice_on_village)
 	{
 	case 1:
-		//допилите меня пожалуйста
-		break;
+		printprint("\nк ВАМ подходит дед и говорит \"чужеземец, мы видим на сколько ты ВЕЛИК и не хотим с тобой сражаться\"\n ВАМ дают выбор: помочь деревне или просто уйти. \n", 15);
+		printprint("1) уйти\n", 15);
+		printprint("2) помочь деревне\n", 15);
+		printprint("3) разграбить деревню\n", 15);
+		switch (choice(3))
+		{
+		case 1:
+			system("cls");
+			_player_.kind_evil += 2;
+			//text_jail();
+			break;
+		case 2:
+			system("cls");
+			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+			mission = true;
+			text_ant_anthill();
+			break;
+		case 3:
+			system("cls");
+			printprint("\n  вы решаете уничтожить деревню, что бы забрать все их ценности \n", 15);
+			mission = true;
+			destroy_village();
+			break;
+			
+		}
 	case 2:
 		printprint("\n\"видимо это была деревня хазбика \".\n к ВАМ подходит дед и спрашивает, не натыкались ли ВЫ на кого-нибудь \n", 15);
 		printprint("1) соврать\n", 15);
@@ -338,7 +363,7 @@ void text_find_village()
 			_player_.kind_evil += 2;
 			//intelect -= 10;
 			_player_.intelligence -= 10;
-			//text_jail();
+			text_jail();
 			break;
 		}
 
@@ -359,8 +384,8 @@ void text_find_village()
 			mission = true;
 			text_ant_anthill();
 			break;
-
-			break;
+			
+			
 		}
 		break;
 	case 4:
@@ -418,7 +443,76 @@ void text_festival()
 		int reighnResuly = Reighn();
 	//-2: Вас сверг уставший от диктатуры народ -1: Казна опустела 1: Вы продержались 15 дней. 
 }
+text_jail()
+{
+	system("cls");
+	printprint("вы оказываетесь в тюрьме, но весьма условно, ведь в деревни не было таких ОГРОМНЫХ домов\n", 15);
+	printprint("1) продолжить сидеть в тюрьме\n", 15);
+	printprint("2) вымолить прощение\n", 15);
+	printprint("3) уйти домой\n\n", 15);
+	switch (choice(2))
+	{
+	case 1:
+		//evil -= 2;
+		system("cls");
+		_player_.kind_evil += 2;
+		//text_jail();
+		break;
+	case 2:
+		printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+		mission = true;
+		text_ant_anthill();
+		break;
 
+
+	}
+
+}
+void destroy_village()
+{
+	destroy = true;
+	_player_.kind_evil -= 100;
+	printprint("\nВЫ начали разрушать дома и растаптывать всех подходящий защитников с зубачистками вместо оружия\nВЫ остановились, когда увидели безоружного, он предложил сыграть в камень ножницы бумагу\n если выиграет он то вы покините деревню, иначе они отдадут противоядие\n", 15);
+	printprint("1) сыграть в камень ножницы бумага\n", 15);
+	printprint("2) пнуть его\n", 15);
+	switch (choice(2))
+	{
+	case 1:
+	
+		system("cls");
+		gamescissors();
+		system("cls");
+		printprint("Вы проигрываете с ОГРОМНЫМ отстованием\n", 15);
+		printprint("1) сделать, как вы договаривались\n", 15);
+		printprint("2) забыть о договоре и пнуть его\n", 15);
+		switch (choice(2))
+		{
+		case 1:
+		
+			end_microforest();
+		case 2:
+			pinok();
+			break;
+		}
+		break;
+	case 2:
+		pinok();
+		break;
+	}
+}
+void pinok()
+{
+	system("cls");
+	printprint("Вы пинаете его, как футбольный мячик, он улетает за горизонт\n", 15);
+	printprint("больше никто не может ВАС остановить, полностью уничтожив деревню ВЫ не находите ничего ценного \n", 15);
+	end_microforest();
+	break;
+}
+end_microforest()
+{
+	if(destroy)
+		printprint("Вы уже возвращаетесь домой, но оказывается, что те зубачистки были отравленны, ВЫ падаете без сознания\n", 15);
+}
 /*
 1 попасть случайно
 2 убил на либуре
