@@ -72,7 +72,7 @@ void gamescissors()
 	if(!destroy)
 		printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n", 15);
 	system("pause");
-	name.strength--;
+	_player_.strength -= 1;
 }
 void fight_ant_anthill()
 {
@@ -466,12 +466,12 @@ void text_festival()
 		if (krestiki() == 1) //?
 		{
 			printprint("\nкакой ВЫ молодец, выиграли гнома, который играл в первый раз. ВЫ ВЕЛИКИЙ человек! \n", 15);
-			name.strength += 1;
+			_player_.strength += 1;
 		}
 		else {
 			printprint("\nВЫ решили поддаться гному, который видит эту игру впервые. ВЫ ВЕЛИКИЙ человек! \n", 15);
 			//evil -= 3;
-			name.strength += 3;
+			_player_.strength += 3;
 			_player_.kind_evil += 3;
 		}
 		break;
