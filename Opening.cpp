@@ -240,7 +240,7 @@ void Begining()
 	switch (choice(3))
 	{
 	case 1:
-		if (NecromantMustLearn)
+		if (NecromantMustLearn && !WasAcademy)
 		{
 			system("cls");
 			printprint("Вы некромант, вы должны некромантить, а не по лесам шляться!\n", 10);
@@ -262,7 +262,7 @@ void Begining()
 	case 3:
 		if (!WasCirc)
 		{
-			if (NecromantMustLearn)
+			if (NecromantMustLearn && !WasAcademy)
 			{
 				system("cls");
 				printprint("Ты что клоун? Выбрал некроманта, вот и иди на некроманта!\n", 10);
