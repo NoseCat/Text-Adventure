@@ -267,13 +267,13 @@ int enchantment(Player& name) //________________________________________________
 	case 3:
 	case 4:
 	case 5:
-		printf("Качество: Хорошо. %s теперь значительно острей!\n(Сила: + %d, +10 к \"%s\", +1 к удаче))\n", name.p_weapon, success, name.p_weapon);
+		printf("Качество: Хорошо. %s теперь значительно острей!\n(Сила: + %d, +10 к \"%s\", +1 к удаче))\n", name.p_weapon, success, name.p_class_stamina);
 		name.strength += success;
 		name.max_stamina += 10;
 		name.luck += 1;
 		break;
 	case 6:
-		printf("Качество: Идеально! %s теперь может резать даже камень!\n(+%d к силе, + 20 к \"%s\", +2 к удаче)\n", name.p_weapon, success, name.p_weapon);
+		printf("Качество: Идеально! %s теперь может резать даже камень!\n(+%d к силе, + 20 к \"%s\", +2 к удаче)\n", name.p_weapon, success, name.p_class_stamina);
 		name.strength += success;
 		name.max_stamina += 20;
 		name.luck += 2;
