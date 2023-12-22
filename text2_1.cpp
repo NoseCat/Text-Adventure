@@ -528,6 +528,7 @@ void text_festival()
 		rat.health = 250;
 		rat.defense = 20;
 		rat.strength = 30;
+		strcpy_s(rat.p_class, " рыса");
 		printprint("¬џ пришли к логову этого звер€ там была ќ√–ќћЌЌјя крыса\n", 15);
 		system("pause");
 		fight(rat);
