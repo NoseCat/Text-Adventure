@@ -4,6 +4,7 @@
 #include "func3.h"
 #include "Opening.h"
 
+
 extern Player _player_;
 
 void FightStateOutput(int enemy_chardg, Player _player_, Player enemy)
