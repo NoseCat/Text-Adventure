@@ -8,7 +8,7 @@
 
 HANDLE circ = GetStdHandle(STD_OUTPUT_HANDLE);
 
-
+extern bool WasCirc;
 // Был ли игрок в цирке.
 bool was_at_circus = 0;
 
@@ -63,6 +63,7 @@ void ending_2_3(int story_code);
 
 void opening_of_the_circus_2_3_0()
 {
+	WasCirc = true;
 	system("cls");
 	if (was_at_circus == 1)
 	{
