@@ -160,7 +160,10 @@ void fight_ant_anthill()
 					_player_.health -= (ant_colonies.attack - _player_.defense);
 					printf("зря вы их разозлили -%d hp\n ", (ant_colonies.attack - _player_.defense));
 					if (_player_.health <= 0)
-						endfight = true;
+					{
+						printf("вы умерли от муравьев, проиграли такой МАЛЕНЬКОЙ угрозе.\n ");
+						exit(0);
+					}
 				}
 			}
 		}
@@ -178,13 +181,21 @@ void fight_ant_anthill()
 			
 			system("cls");
 			printprint("ВЫ возвращаетесь с ОГРОМНЫМ горшочком золота. поздравляю. \n", 15);
+			exit(0);
 			break;
 		case 2:
 			system("cls");
-			printprint("по возвращению в деревню они начали запускать салют и ВАС провозглашают героем\n", 15);
-			printprint("ВЫ живете здесь несколько дней и понимаете, что еды нет, под апладисменты и авации ВЫ уходите домой\n", 15);
+			printprint("из-за ВАС эта тирания кончилась, в честь этого началось празднавание \n", 15);
+			king = true;
+			text_festival();
 			break;
 		}
+	}
+	else
+	{
+		printprint("ВЫ возвращаетесь с ОГРОМНЫМ горшочком золота. поздравляю. \n", 15);
+	
+		exit(0);
 	}
 }
 void microforest()
@@ -230,9 +241,11 @@ void text_ant_anthill()
 		break;
 	case 2:
 		system("cls");
-		if(WasAcademy)
+		if (WasAcademy)
+		{
 			printprint("ВЫ убегаете настолько далеко, насколько это возможно\n в этот раз вам не везет и вы оказываетесь посреди абсолютного ничего\n никто не услышит твой ВЫСОКИЙ юмор \n\n", 15);
-		
+			exit(0);
+		}
 		else
 		{
 			printprint("ВЫ убегаете настолько далеко, насколько это возможно\n как только вы начали успокаиваться и понимать что проиходит\n ВЫ давно выбежали из леса и попали на лекцию по некромантии \n\n", 15);
@@ -330,12 +343,12 @@ void text_Excalibur_diolog()
 	case 2:
 		choice_on_village = 5;
 		text_find_village();
-		break;
+		break; 
 	}
 }
 void text_Excalibur_hero()
 {
-	printprint("ВЫ высовываете шпажку и отдаёте её микрочелику.\nон просит вас пойти с ним в деревню, чтобы ВАС отблагодарить \n\n", 15);
+	printprint("ВЫ высовываете шпажку и отдаёте её хазбику.\nон просит вас пойти с ним в деревню, чтобы ВАС отблагодарить \n\n", 15);
 	printprint("1) пойти с ним\n", 15);
 	switch (choice(1))
 	{
@@ -361,6 +374,8 @@ void text_find_village()
 		{
 		case 1:
 			system("cls");
+			printprint("вам не понравилось в этом лесу он был слишком МАЛ для вас\n", 15);
+			exit(0);
 			_player_.kind_evil += 2;
 			//text_jail();
 			break;
@@ -477,19 +492,8 @@ void text_festival()
 		}
 		break;
 	}
-	if (namefalse)
-	{
-		printprint("\nк ВАМ подходит старейшина и просит об 1 услуге: уничтожить ОГРОМНОЕ чудовище нападающие на поселение\n", 15);
-		printprint("1) Я ВЕЛИКИЙ герой и не могу отказать\n", 15);
-		printprint("2) Я ВЕЛИЧАЙШИЙ герой и не могу отказать\n", 15);
-		printprint("3) Я ОГРОМЕННЕЙШИЙ герой и не могу отказать\n", 15);
-		choice(3);
-		enchantment(_player_);
-		printf("\n");
-		printstat(_player_, strength);
-		printf("\n");
-	}
-	else if (king == true)
+
+	if (king == true)
 	{
 		int reighnResuly = Reighn();
 		if(reighnResuly==-2)
@@ -500,7 +504,33 @@ void text_festival()
 		printprint("2)СЪЕСТЬ\n", 15);
 		printprint("\nКОНЕЦ\n", 5);
 		if (reighnResuly == 1)
-			printprint("ВЫ были отличным королем эта деревня процветает\n", 15);
+			printprint("ВЫ были отличным королем эта деревня процветает, но вы умерли с голода из-за МАЛЕНЬКИХ порций\n", 15);
+		if(choice_on_village == 4)
+			printprint("\n(Мицура не сделал запоминание имён поэтому о вас никто не будет помнить)\n", 15);
+	}
+	else
+	{
+		printprint("\nк ВАМ подходит старейшина и просит об 1 услуге: уничтожить ОГРОМНОЕ чудовище нападающие на поселение\n", 15);
+		printprint("1) Я ВЕЛИКИЙ герой и не могу отказать\n", 15);
+		printprint("2) Я ВЕЛИЧАЙШИЙ герой и не могу отказать\n", 15);
+		printprint("3) Я ОГРОМЕННЕЙШИЙ герой и не могу отказать\n", 15);
+		choice(3);
+		system("cls");
+		printprint("перед походом старейшина говорит ВАМ заточить своё оружие перед великим боем\n", 15);
+		system("pause");
+		enchantment(_player_);
+		printf("\n");
+		printstat(_player_, strength);
+		printf("\n");
+		Player rat;
+		rat.max_health = 100;
+		rat.health = 100;
+		rat.defence = 10;
+		rat.strength = 30;
+		printprint("ВЫ пришли к логову этого зверя там была ОГРОМННАЯ крыса\n", 15);
+		system("pause");
+		fight(rat);
+		printprint("тепереь ВЫ ВЕЛИКИЙ герой этого леса, о ктором будут сказывать легенды\n", 15);
 	}
 	exit(0);
 	//-2: Вас сверг уставший от диктатуры народ -1: Казна опустела 1: Вы продержались 15 дней. 
