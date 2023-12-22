@@ -158,6 +158,26 @@ void fight_ant_anthill()
 		}
 		
 	} while (!endfight);
+	system("cls");
+	printprint("из муравейника вылез липрикон, и говорит, что он герой этого леса, отдаёт горшочек золота и улетает на радуге \n", 15);
+	if (mission)
+	{
+		printprint("1) вернуться домой\n", 15);
+		printprint("2) вернуться в деревню\n", 15);
+		switch (choice(2))
+		{
+		case 1:
+			
+			system("cls");
+			printprint("ВЫ возвращаетесь с ОГРОМНЫМ горшочком золота. поздравляю. \n", 15);
+			break;
+		case 2:
+			system("cls");
+			printprint("по возвращению в деревню они начали запускать салют и ВАС провозглашают героем\n", 15);
+			printprint("ВЫ живете здесь несколько дней и понимаете, что еды нет, под апладисменты и авации ВЫ уходите домой\n", 15);
+			break;
+		}
+	}
 }
 void microforest()
 {
@@ -450,15 +470,51 @@ text_jail()
 	printprint("1) продолжить сидеть в тюрьме\n", 15);
 	printprint("2) вымолить прощение\n", 15);
 	printprint("3) уйти домой\n\n", 15);
-	switch (choice(2))
+	switch (choice(3))
 	{
 	case 1:
-		//evil -= 2;
 		system("cls");
-		_player_.kind_evil += 2;
-		//text_jail();
+		printprint("ВЫ продолжаете сидеть в тюрьме уже несколько дней. ВЫ хотите есть\n", 15);
+		printprint("1) продолжить сидеть в тюрьме\n", 15);
+		printprint("2) вымолить прощение\n", 15);
+		printprint("3) уйти домой\n\n", 15);
+		switch (choice(3))
+		{
+		case 1:
+			system("cls");
+			printprint("ВЫ сидите в тюрьме довольно долго. ВЫ умираете с голода\n", 15);
+			printprint("1) продолжить сидеть в тюрьме\n", 15);
+			printprint("2) вымолить прощение\n", 15);
+			printprint("3) уйти домой\n\n", 15);
+			switch (choice(3))
+			{
+			case 1:
+				system("cls");
+				printprint("ВЫ умерли с голода\n", 15);
+			break;
+			case 2:
+				system("cls");
+				printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+				mission = true;
+				text_ant_anthill();
+		
+				break;
+			case 3:
+				end_microforest();
+				break;
+		case 2:
+			system("cls");
+			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+			mission = true;
+			text_ant_anthill();
+			break;
+		case 3:
+			end_microforest();
 		break;
+
+
 	case 2:
+		system("cls");
 		printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
 		mission = true;
 		text_ant_anthill();
@@ -466,7 +522,15 @@ text_jail()
 
 
 	}
-
+		case 2:
+			system("cls");
+			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
+			mission = true;
+			text_ant_anthill();
+			break;
+		case 3:
+			end_microforest();
+		break;
 }
 void destroy_village()
 {
@@ -508,10 +572,12 @@ void pinok()
 	end_microforest();
 	break;
 }
-end_microforest()
+void end_microforest()
 {
 	if(destroy)
 		printprint("Вы уже возвращаетесь домой, но оказывается, что те зубачистки были отравленны, ВЫ падаете без сознания\n", 15);
+	else
+		printprint("Вы возвращаетесь домой, c пустыми руками\n", 15);
 }
 /*
 1 попасть случайно
