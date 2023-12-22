@@ -71,9 +71,10 @@ void gamescissors()
 		}
 	}
 	if(!destroy)
-		printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n", 15);
+		printprint("вы проиграли.КАКАЯ НЕОЖИДАНОСТЬ\n Вы стали слабей -1 атака\n", 15);
 	system("pause");
 	_player_.strength -= 1;
+
 }
 void fight_ant_anthill()
 {
@@ -481,11 +482,11 @@ void text_festival()
 		system("pause");
 		if (krestiki() == 1) //?
 		{
-			printprint("\nкакой ВЫ молодец, выиграли гнома, который играл в первый раз. ВЫ ВЕЛИКИЙ человек! \n", 15);
+			printprint("\nкакой ВЫ молодец, выиграли гнома, который играл в первый раз. ВЫ ВЕЛИКИЙ человек!\n Вы стали сильней +1 атака \n", 15);
 			_player_.strength += 1;
 		}
 		else {
-			printprint("\nВЫ решили поддаться гному, который видит эту игру впервые. ВЫ ВЕЛИКИЙ человек! \n", 15);
+			printprint("\nВЫ решили поддаться гному, который видит эту игру впервые. ВЫ ВЕЛИКИЙ человек! \n Вы стали сильней +3 атака \n", 15);
 			//evil -= 3;
 			_player_.strength += 3;
 			_player_.kind_evil += 3;
@@ -523,9 +524,9 @@ void text_festival()
 		printstat(_player_, strength);
 		printf("\n");
 		Player rat;
-		rat.max_health = 100;
-		rat.health = 100;
-		rat.defense = 10;
+		rat.max_health = 250;
+		rat.health = 250;
+		rat.defense = 20;
 		rat.strength = 30;
 		printprint("ВЫ пришли к логову этого зверя там была ОГРОМННАЯ крыса\n", 15);
 		system("pause");
