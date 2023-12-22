@@ -2,6 +2,9 @@
 #include <Windows.h>
 #include "Opening.h" 
 
+bool WasCirc;
+bool WasAcademy;
+
 //проверка выбора
 int choice(int amountOfChoices)
 {
@@ -38,6 +41,8 @@ void death()
 	{
 	case 1:
 		system("cls");
+		WasCirc = false;
+		WasAcademy = false;
 		NameEnter();
 		break;
 	case 2:
