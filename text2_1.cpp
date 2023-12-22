@@ -37,6 +37,10 @@ void text_Excalibur_vor_kill();
 void text_Excalibur_vor_save();
 void text_find_village();
 void text_festival();
+void destroy_village();
+void end_microforest();
+void text_jail();
+void pinok();
 /*
 1 попасть случайно
 2 убил на либуре
@@ -463,7 +467,7 @@ void text_festival()
 		int reighnResuly = Reighn();
 	//-2: Вас сверг уставший от диктатуры народ -1: Казна опустела 1: Вы продержались 15 дней. 
 }
-text_jail()
+void text_jail()
 {
 	system("cls");
 	printprint("вы оказываетесь в тюрьме, но весьма условно, ведь в деревни не было таких ОГРОМНЫХ домов\n", 15);
@@ -486,22 +490,23 @@ text_jail()
 			printprint("1) продолжить сидеть в тюрьме\n", 15);
 			printprint("2) вымолить прощение\n", 15);
 			printprint("3) уйти домой\n\n", 15);
-			switch (choice(3))
+			switch (choice(3)) //ААААААААААААААААААААААА матрешка лол
 			{
 			case 1:
 				system("cls");
 				printprint("ВЫ умерли с голода\n", 15);
-			break;
+				break;
 			case 2:
 				system("cls");
 				printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
 				mission = true;
 				text_ant_anthill();
-		
+
 				break;
 			case 3:
 				end_microforest();
 				break;
+			}
 		case 2:
 			system("cls");
 			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
@@ -510,8 +515,8 @@ text_jail()
 			break;
 		case 3:
 			end_microforest();
-		break;
-
+			break;
+		}
 
 	case 2:
 		system("cls");
@@ -519,10 +524,13 @@ text_jail()
 		mission = true;
 		text_ant_anthill();
 		break;
-
-
+	case 3:
+		end_microforest();
+		break;
+		//case 3 вставил такой же как в блоке ниже потому что похоже на правду 
 	}
-		case 2:
+	// я не знаю куда это закинуть выглядит вообще как копия года выше
+		/*case 2:
 			system("cls");
 			printprint("\nВАМ дали задание, уничтножить колонию, котороя их уже долгое время терроризирует  \n", 15);
 			mission = true;
@@ -530,7 +538,7 @@ text_jail()
 			break;
 		case 3:
 			end_microforest();
-		break;
+		break;*/
 }
 void destroy_village()
 {
@@ -570,7 +578,7 @@ void pinok()
 	printprint("Вы пинаете его, как футбольный мячик, он улетает за горизонт\n", 15);
 	printprint("больше никто не может ВАС остановить, полностью уничтожив деревню ВЫ не находите ничего ценного \n", 15);
 	end_microforest();
-	break;
+	//break;
 }
 void end_microforest()
 {

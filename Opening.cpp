@@ -122,6 +122,8 @@ bool NecromantMustLearn = false;
 void Circus();
 
 Player _player_;
+bool WasCirc = false;
+bool WasAcademy = false;
 
 void NameEnter()
 {
@@ -234,7 +236,7 @@ void Begining()
 	//fill_player(enemy, Necromancer);
 	//fight(enemy);
 	//printstats(_player_);
-	printprint("Вас влечет жажда преключений. Найти работу:\n\n1) Пойти в лес\n2) Поступить на некроманта.\n3) Пойти в цирк.\n", 15);
+	printprint("Вам нужно найти работу:\n\n1) Пойти в лес\n2) Поступить на некроманта.\n3) Пойти в цирк.\n", 15);
 	switch (choice(3))
 	{
 	case 1:
@@ -248,17 +250,34 @@ void Begining()
 			forest();
 		break;
 	case 2:
-		Necromancy();
-		break;
-	case 3:
-		if (NecromantMustLearn)
+		if (!WasAcademy)
+			Necromancy();
+		else
 		{
 			system("cls");
-			printprint("Ты что клоун? Выбрал некроманта, вот и иди на некроманта!\n", 10);
+			printprint("Вы уже там были\n", 15);
 			Begining();
 		}
-		else;
+		break;
+	case 3:
+		if (!WasCirc)
+		{
+			if (NecromantMustLearn)
+			{
+				system("cls");
+				printprint("Ты что клоун? Выбрал некроманта, вот и иди на некроманта!\n", 10);
+				Begining();
+			}
+			else;
 			Circus();
+		}
+		else
+		{
+			system("cls");
+			printprint("Вы уже там были\n", 15);
+			Begining();
+		}
+		
 		break;
 	}
 }

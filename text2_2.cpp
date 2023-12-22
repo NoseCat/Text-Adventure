@@ -10,6 +10,7 @@
 extern Player _player_;//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 extern Player Necromancer;
 extern Player Berserk;
+extern bool WasAcademy;
 
 bool textNecroPractise1_2NOTtriedRessurect = true;
 bool textNecroPractise1_4FirstTime = true;
@@ -48,6 +49,7 @@ void Graduation();
 
 void text2_2()
 {
+	WasAcademy = true;
 	printprint("В Дебрянский государственный Некротехнологическиий университет оказалось довольно легко поступить.\nПохоже что на рынке труда и в правду дефицит Некромантов.\n\n", 15);
 
 	printprint("Вы пришли на пару по Некрологии. Трехсотлетний преподователь уже начал лекцию.\n\n",15);
@@ -601,7 +603,8 @@ void textNecroPractise3()
 void letstryanother()
 {
 	system("cls");
-	printprint("Вам всё еще нужна работа.\n\n", 15);
+	Begining();
+	/*printprint("Вам всё еще нужна работа.\n\n", 15);
 
 	printprint("1) Пойти в лес\n", 15);
 	printprint("2) Пойти в цирк\n", 15);
@@ -614,7 +617,7 @@ void letstryanother()
 	case 2:
 		Circus(); 
 		break;
-	}
+	}*/
 }
 
 void aftermath()
