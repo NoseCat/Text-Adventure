@@ -11,7 +11,6 @@ extern Player _player_;//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 extern Player Necromancer;
 extern Player Berserk;
 extern bool WasAcademy;
-bool delclared = true;
 
 bool textNecroPractise1_2NOTtriedRessurect = true;
 bool textNecroPractise1_4FirstTime = true;
@@ -50,8 +49,7 @@ void Graduation();
 
 void text2_2()
 {
-	if(delclared)
-		WasAcademy = true;
+	WasAcademy = true;
 	printprint("В Дебрянский государственный Некротехнологическиий университет оказалось довольно легко поступить.\nПохоже что на рынке труда и в правду дефицит Некромантов.\n\n", 15);
 
 	printprint("Вы пришли на пару по Некрологии. Трехсотлетний преподователь уже начал лекцию.\n\n",15);
