@@ -20,6 +20,7 @@ int choice(int amountOfChoices)
 //выводит текст по буквам speed советую делать 15
 void printprint(const char text[], int speed)
 {
+	//speed /= 2;
 	char EndSimbol[] = ".!?";
 	for (int i = 0; text[i] != EndSimbol[3]; i++)
 	{
